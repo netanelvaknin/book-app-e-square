@@ -6,7 +6,7 @@ import {
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import ContextContainers from './context/ContextContainer';
+import ContextContainer from './context/ContextContainer';
 import GlobalStyle from './styles';
 import theme from './theme';
 
@@ -18,10 +18,10 @@ declare module '@mui/styles/defaultTheme' {
 ReactDOM.render(
   <StyledEngineProvider injectFirst>
     <ThemeProvider theme={theme}>
-      <ContextContainers>
+      <ContextContainer>
         <GlobalStyle />
         <App />
-      </ContextContainers>
+      </ContextContainer>
     </ThemeProvider>
   </StyledEngineProvider>,
   document.getElementById('root'),

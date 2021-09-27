@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from 'react';
+import { RootContext } from './context/root/RootState';
+import Books from './pages/books/Books';
+import { StyledBlockUI } from './styles';
+import 'react-block-ui/style.css';
 
-function App() {
+export const App = () => {
+  const rootContext = useContext(RootContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledBlockUI
+      tag='div'
+      blocking={rootContext?.loading}
+      message='loading...'
+      keepInView
+    >
+      <Books />
+    </StyledBlockUI>
   );
-}
+};
 
 export default App;
